@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathSnap Evaluator Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">&#10148;</div>
+            <div>
+                <h1>PathSnap Route Reconstruction</h1>
+                <span>Distributed Map-Matching & Trajectory Verification System</span>
+            </div>
+        </div>
+        <div class="status-badge" id="api-status">
+            <div class="status-dot"></div>
+            <span>API Online (Port 8001)</span>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar Controls -->
+        <div class="sidebar">
+            <div>
+                <span class="section-title">Evaluation Trip Selection</span>
+                <p style="font-size: 12px; color: #64748b; margin: 4px 0 10px 0;">Select one of the 10 reserved test trips:</p>
+                <select id="trip-dropdown" class="trip-select">
+                    <option value="" disabled selected>Loading evaluation trips...</option>
+                </select>
+            </div>
+
+            <button id="btn-evaluate" class="btn-primary" disabled>
+                <span>&#9654;</span> Evaluate Selected Trip
+            </button>
+
+            <span class="section-title">Evaluation Metrics</span>
+            <div class="metrics-panel">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-label">HMM Top-1 Observation Accuracy</span>
+                        <span class="metric-gain" id="acc-gain">+0.00%</span>
+                    </div>
+                    <div class="metric-values">
+                        <span class="metric-primary" id="val-hmm-acc">--%</span>
+                        <span class="metric-secondary" id="val-clf-acc">Clf: --%</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-label">Route Continuity</span>
+                        <span class="metric-gain" id="cont-gain">+0.00%</span>
+                    </div>
+                    <div class="metric-values">
+                        <span class="metric-primary" id="val-hmm-cont">--%</span>
+                        <span class="metric-secondary" id="val-clf-cont">Clf: --%</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-label">Candidate Miss Rate</span>
+                    </div>
+                    <div class="metric-values">
+                        <span class="metric-primary" id="val-miss-rate">--%</span>
+                        <span class="metric-secondary" id="val-obs-count">-- Obs</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-label">Pipeline Processing Latency</span>
+                    </div>
+                    <div class="metric-values">
+                        <span class="metric-primary" id="val-latency">-- s</span>
+                        <span class="metric-secondary">End-to-End</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: auto; font-size: 11px; color: #475569; border-top: 1px solid #334155; padding-top: 12px;">
+                PES University &bull; Machine Learning Hackathon<br>
+                Model: Tuned XGBoost + HMM Viterbi Decoder
+            </div>
+        </div>
+
+        <!-- Main Map & Console Area -->
+        <div class="content-pane">
+            <div class="map-wrapper">
+                <iframe id="map-frame" src="/api/map/00000052"></iframe>
+            </div>
+
+            <div class="terminal-pane">
+                <div class="terminal-header">
+                    <span class="terminal-title">Server Communication & Live Inference Logs</span>
+                    <span style="font-size: 11px; color: #64748b; font-family: monospace;">Endpoint: POST /api/evaluate/{trip_id}</span>
+                </div>
+                <div class="terminal-body" id="log-console">
+                    <div class="log-entry log-info">[System] Dashboard initialized. Connecting to PathSnap evaluation backend...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

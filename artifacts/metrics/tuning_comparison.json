@@ -1,0 +1,20 @@
+[
+    {
+        "Configuration": "Untuned XGBoost (Baseline)",
+        "CV_Macro_F1": 0.8266,
+        "Test_Macro_F1": 0.827944000310867,
+        "Test_Top1_Accuracy": 0.6632045929018789,
+        "Test_Route_Continuity": 0.8989273256552742,
+        "Test_Log_Loss": 0.20082172751426697,
+        "Inference_Time_ms": 29.51216697692871
+    },
+    {
+        "Configuration": "Tuned XGBoost (Bayesian Optuna)",
+        "CV_Macro_F1": 0.8269101385524503,
+        "Test_Macro_F1": 0.8300160414481115,
+        "Test_Top1_Accuracy": 0.6652400835073069,
+        "Test_Route_Continuity": 0.8982032840355979,
+        "Test_Log_Loss": 0.19706854224205017,
+        "Inference_Time_ms": 31.505823135375977
+    }
+]

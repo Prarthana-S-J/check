@@ -1,0 +1,35 @@
+{
+    "total_trips": 90,
+    "train_trips": 80,
+    "student_test_trips": 10,
+    "total_track_points": 227577,
+    "train_track_points": 208417,
+    "student_test_track_points": 19160,
+    "total_route_arcs": 34813,
+    "missing_values_total": 0,
+    "dt_stats": {
+        "mean": 2.086635100027694,
+        "median": 1.0,
+        "pct_exactly_1s": 96.67981027487285,
+        "max": 153064.0,
+        "p99": 3.0
+    },
+    "step_dist_stats": {
+        "mean_m": 14.398090343660776,
+        "median_m": 11.578696272680075,
+        "max_m": 887.5473828787983,
+        "p95_m": 34.14015246847311
+    },
+    "speed_stats": {
+        "mean_kmh": 49.80789422505903,
+        "median_kmh": 40.66216204683105,
+        "p95_kmh": 118.89123898242585,
+        "max_kmh": 648.4968953236497
+    },
+    "trip_length_stats": {
+        "mean_km": 36.393093088981765,
+        "median_km": 24.065686230098315,
+        "min_km": 5.546797313623616,
+        "max_km": 169.25377241312498
+    }
+}
